@@ -74,14 +74,16 @@
 .list-block{
   margin: 0.8rem 0;
 }
-.list-block .item-content{
-  padding: 0;
-  border-bottom: 0.025rem solid #d5d5d5;
+.list-block .item-content {
+    padding: 0;
+    border-bottom: 0.025rem solid #d5d5d5;
+    height: 2.25rem;
 }
 .list-block .item-inner {
     margin-left: .75rem;
     height: 2.625rem;
     justify-content: unset;
+    border-bottom: none;
 }
 .list-block .item-title {
     color: #040404;
@@ -130,5 +132,18 @@ label.label-checkbox input[type=checkbox]:checked+.item-media i.icon-form-checkb
     line-height: 2rem;
     color: #040404;
     font-size: 0.6rem;
+}
+.list-block ul{
+  background:unset;
+  border-bottom: unset;
+}
+.list-block ul li {
+    background: #fff;
+    margin-bottom: 0.6rem;
+}
+.address_info {
+  font-size:0.55rem;
+  font-weight:200;
+  padding: 1rem 0 1rem 2.6rem;
 }
 
