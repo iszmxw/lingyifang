@@ -91,7 +91,7 @@
 			</div>
 	    </div>
     </div>
-    <script type='text/javascript' src='js/public/jquery-3.3.1.min.js' charset='utf-8'></script>
+    <script type="text/javascript" src="http://develop2.01nnt.com/personal/public/Wechat/js/public/jquery.min.js"></script>
     <script type='text/javascript' src='js/public/light7.min.js' charset='utf-8'></script>
 <script type="text/javascript">
 //因为冒泡了，会执行到下面的方法。
@@ -137,12 +137,13 @@ function disable_scroll() {
 function enable_scroll() {
     $(document).off('touchmove', prevent_default);
 }
+
 //滑动删除
 var Drags = {};
 Drags.dragtag = false;//拖动状态
 Drags.dragstart = true;//拖动开始标志
 Drags.datatransx = 0;
-$('.pay-list .pay-each')
+$('.follow_box .follow_list')
     .on('touchstart mousedown', function (e) {
         if (!($(e.target).hasClass("pay-order-swiper") || $(e.target).parents().hasClass("pay-order-swiper"))) {
             closeallswipe();     //点击还原
