@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>我的关注</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="css/public/light7.min.css">
+    <link rel="stylesheet" href="css/attention_store_list.css">
+  </head>
+  <body>
+    <div class="page page-current">
+	    <div class="g-flexview">
+			<div class="g-scrollview" id="g-scrollview">
+				<div class="header">
+					<span class="icon_left"></span>
+					我的关注
+				</div>
+				<p class="tips">我关注了<font color="#fd473c">87</font>家零壹坊联盟店</p>
+				<div class="follow_box">
+					<div class="follow_list">
+						<div class="list_left">
+							<div class="icon_store">
+								<img src="images/ceshituian.jpg">
+							</div>
+							<div class="info">
+								<p class="tit">都市书城</p>
+								<p class="count">475人关注</p>
+							</div>
+							<div class="more"></div>
+						</div>
+						<div class="list_right">
+							<a href="JavaScript:;" onclick="quxiao()">取消关注</a>
+							<a href="JavaScript:;" class="go_url" onclick="go_url()">进店逛逛</a>
+						</div>
+					</div>
+
+					<div class="follow_list">
+						<div class="list_left">
+							<div class="icon_store">
+								<img src="images/ceshituian.jpg">
+							</div>
+							<div class="info">
+								<p class="tit">都市书城</p>
+								<p class="count">475人关注</p>
+							</div>
+							<div class="more"></div>
+						</div>
+						<div class="list_right">
+							<a href="JavaScript:;" onclick="quxiao()">取消关注</a>
+							<a href="JavaScript:;" class="go_url" onclick="go_url()">进店逛逛</a>
+						</div>
+					</div>
+
+					<div class="follow_list">
+						<div class="list_left">
+							<div class="icon_store">
+								<img src="images/ceshituian.jpg">
+							</div>
+							<div class="info">
+								<p class="tit">都市书城</p>
+								<p class="count">475人关注</p>
+							</div>
+							<div class="more"></div>
+						</div>
+						<div class="list_right">
+							<a href="JavaScript:;" onclick="quxiao()">取消关注</a>
+							<a href="JavaScript:;" class="go_url" onclick="go_url()">进店逛逛</a>
+						</div>
+					</div>
+
+					<div class="follow_list">
+						<div class="list_left">
+							<div class="icon_store">
+								<img src="images/ceshituian.jpg">
+							</div>
+							<div class="info">
+								<p class="tit">都市书城</p>
+								<p class="count">475人关注</p>
+							</div>
+							<div class="more"></div>
+						</div>
+						<div class="list_right">
+							<a href="JavaScript:;" onclick="quxiao()">取消关注</a>
+							<a href="JavaScript:;" class="go_url" onclick="go_url()">进店逛逛</a>
+						</div>
+					</div>
+				</div>
+			</div>
+	    </div>
+    </div>
+    <script type='text/javascript' src='js/public/jquery-3.3.1.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='js/public/light7.min.js' charset='utf-8'></script>
+<script type="text/javascript">
+//因为冒泡了，会执行到下面的方法。
+function stopPropagation(e) {
+    var ev = e || window.event;
+    if (ev.stopPropagation) {
+        ev.stopPropagation();
+    }
+    else if (window.event) {
+        window.event.cancelBubble = true;//兼容IE
+    }
+}
+$ (".more").click (function (e){
+	stopPropagation(e);
+    // 不用写太多，用jquery要活学活用，只知道parent，不知道parents，是无用的。
+    $(this).parents("div.list_left").animate({'left':'-9rem'});
+    $(this).parents("div.follow_list").find('.list_right').animate({'right':'0rem'});
+});
+$("body").click(function(e){
+	stopPropagation(e);
+	$(".list_left").animate({'left':'0rem'});
+    $(".list_right").animate({'right':'-9rem'});
+})
+function quxiao(e){
+	stopPropagation(e);
+}
+function go_url(e){
+	stopPropagation(e);
+}
+</script>
+</body>	
+</html>
