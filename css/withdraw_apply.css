@@ -117,12 +117,12 @@
   background: linear-gradient(90deg,#fb7458, #fd4854); /* 标准的语法 */
   margin: 0 0.4rem;
 }
-.withdraw_apply{
-  width: 100%;
-  margin-top: 0.525rem;
-  margin-bottom: 1.625rem;
-  height: 12.375rem;
-  background: #fff;
+.withdraw_apply {
+    width: 100%;
+    margin-top: 0.525rem;
+    /* margin-bottom: 1.625rem; */
+    height: 12.375rem;
+    background: #fff;
 }
 .withdraw_apply_content{
   height: 8.025rem;
@@ -162,10 +162,24 @@
 .demo-tip{
   font-size: 0.65rem;
   color: #909090;
-  padding-top: 1.05rem;
+  /* padding-top: 1.05rem; */
   padding-left: 0.8rem;
   padding-right: 0.875rem;
+  padding-bottom: 1.05rem;
 }
 .demo-tip p {
   margin-bottom: 0.55rem;
+}
+.safe_password{
+  margin-top: 0.575rem;
+  margin-bottom: 0.8rem;
+}
+.safe_password .list-block .item-content .item-title{
+  color: #040404;
+  font-size: 0.7rem;
+  width: 20%;
+}
+.safe_password .list-block .item-content .item-input input{
+  color: #b8b8b8;
+  font-size: 0.65rem;
 }
