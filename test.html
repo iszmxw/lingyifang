@@ -1,116 +1,58 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>每日优鲜</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-  <link rel="stylesheet" href="https://www.swiper.com.cn/demo/fresh/css/swiper.min.css">
-
-  <style type="text/css">
-  html,body {
-	position:relative;
-	height:100%;
-}
-html {
-	overflow:hidden;
-}
-* {
-	padding:0;
-	margin:0;
-}
-li {
-	list-style:none;
-}
-body {
-	background:#fff;
-	font-family:Helvetica Neue,Helvetica,Arial,sans-serif;
-	font-size:12px;
-}
-#nav {
-	border-bottom:1px solid #ebebeb;
-}
-#nav .swiper-slide span {
-	margin:0 5px;
-	text-align:center;
-	display:block;
-	line-height:2.5;
-	font-size:14px;
-	color:#333333;
-}
-#nav .bar {
-	width:50px;
-	height:3px;
-	position:absolute;
-	bottom:0px;
-}
-#nav .bar .color {
-	width:36px;
-	margin:0 auto;
-	height:3px;
-	background:#ff4891;
-}
-  </style>
-
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>瀑布流-jquery</title>
+    <style>
+        *{margin:0;padding:0;}
+        #content{position: relative;margin:0 auto;}
+        .box{width: 50%;float: left;}
+        .box img{width: 100%;height:auto;display: block;}
+        .left{float: left;}
+        .right{float: right;}
+    </style>
+    <script src="js/public/jquery.min.js"></script>
+    <script src="js/public/jquery.lazyload.js"></script>
 </head>
 <body>
-<!-- <div id="top"> -->
-  <div class="swiper-container" id="nav">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <span>熟食</span></div>
-      <div class="swiper-slide">
-        <span>水产</span></div>
-      <div class="swiper-slide">
-        <span>粮油</span></div>
-      <div class="swiper-slide">
-        <span>轻食</span></div>
-      <div class="swiper-slide">
-        <span>火锅</span></div>
-      <div class="swiper-slide">
-        <span>日百</span></div>
-      <div class="bar">
-        <div class="color"></div>
-      </div>
-    </div>
-  </div>
-<!-- </div> -->
-
-  <script src="https://www.swiper.com.cn/demo/fresh/js/swiper.min.js"></script>
-  <script>
-  //暂时设计每个slide大小需要一致
-  barwidth = 36 //导航粉色条的长度px
-  tSpeed = 300000000000 //切换速度300ms
-  var navSwiper = new Swiper('#nav', {
-  	slidesPerView: 6,
-  	freeMode: true,
-  	on: {
-  		init: function() {
-  			navSlideWidth = this.slides.eq(0).css('width'); //导航字数需要统一,每个导航宽度一致
-  			console.log(navSlideWidth)
-  			console.log(this.slides);
-  			bar = this.$el.find('.bar')
-  			bar.css('width', navSlideWidth)
-  			bar.transition(tSpeed)
-  			navSum = this.slides[this.slides.length - 1].offsetLeft //最后一个slide的位置
-  			console.log(this);
-  			console.log(this.slides);
-  			clientWidth = parseInt(this.$wrapperEl.css('width')) //Nav的可视宽度
-  			navWidth = 0
-  			for (i = 0; i < this.slides.length; i++) {
-  				navWidth += parseInt(this.slides.eq(i).css('width'))
-  			}
-
-  			topBar = this.$el.parents('body').find('#top') //页头
-
-  		},
-
-  	},
-  });
-
- 
-  </script>
-  
-  
+<div id="content">
+    <div class="box"><img onload="water()" class="lazy" src="images/ceshituian.jpg" alt="" data-original="image/1.jpg"></div>
+</div>
 </body>
+<script type="text/javascript">
+    function water(){
+            var arrBox=$('#content').children('.box');// box对象
+            var arrBoxH=[];//数组，用于存储左侧列中的所有块框相加的高度
+            var arrBoxR=[];//数组，用于存储右侧列中的所有块框相加的高度
+            for(var i=0;i<arrBox.length;i++){      //遍历box
+                var boxH=arrBox.eq(i).innerHeight(); //获得box的高度
+                if(i==0){
+                    arrBox.eq(i).addClass("left"); //第一行中的第一个块box添加左浮动（left是自己写好的有float:left属性的选择器名）
+                    arrBoxH[i]=boxH; //第一行中的第一个块box 先添加进数组arrBoxH
+                }else if(i==1){
+                    arrBox.eq(i).addClass("right");//第一行中的第一个块box添加右浮动
+                    arrBoxR[i]=boxH; //第一行中的第二个个块box 先添加进数组arrBoxR
+                }else{
+                    var leftNum = arrBoxH.reduce(function (x, y) {
+                        return x + y;
+                    });//计算左侧列的高度
+                    var rightNum = arrBoxR.reduce(function (x, y) {
+                        return x + y;
+                    });//计算右侧列的高度
+                    if(leftNum > rightNum) //比较两侧高度大小，决定为该box添加左浮动还是右浮动
+                    {
+                        arrBox.eq(i).removeClass();
+                        arrBox.eq(i).addClass("box right");  //左侧较高为该box添加右浮动
+                        arrBoxR[i]=boxH;                     //将高度添加在右侧数组
+                    }else {
+                        arrBox.eq(i).removeClass();
+                        arrBox.eq(i).addClass("box left");  //右侧较高为该box添加左浮动
+                        arrBoxH[i]=boxH;                    //将高度添加在左侧数组
+                    }
+                }
+            }
+        }
+</script>
 </html>

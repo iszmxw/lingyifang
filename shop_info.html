@@ -9,6 +9,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="stylesheet" href="css/public/light7.min.css">
     <link rel="stylesheet" href="css/shop_info.css">
+    <link rel="stylesheet" href="css/sortable.min.css">  
   </head>
   <body>
     <div class="page page-current">
@@ -101,89 +102,13 @@
 				</div>
 				<div>
 					<div class="store">
-                        <a href="javascript:;" class="item">
-                            <div class="item_top">
-                                <img src="images/ceshituian.jpg">
-                            </div>
-                            <div class="item_info">
-                                <h3 class="s_name"><span class="discount">八折</span>凤聚健康管理之家</h3>
-                                <!-- <p class="s_address">深圳市龙岗区龙岗中心城万汇大厦1608</p> -->
-                                <p class="s_address_dt">&yen;1999</p>
-                            </div>
-                            <div class="item_right_po" onclick="alertMask()">
-								<div class="goods_btn cart_border">
-									<sapn class="cart_box delect_cart_btn">-</sapn>
-									<sapn class="cart_box delect_cart_inpt">123</sapn>
-									<sapn class="cart_box add_cart_btn" onclick="showguige('guige')">+</sapn>
-								</div>
-                            </div>
-                        </a>
-                        <a href="javascript:;" class="item">
-                            <div class="item_top">
-                                <img src="images/ceshituian.jpg">
-                            </div>
-                            <div class="item_info">
-                                <h3 class="s_name">凤聚健康管理之家</h3>
-                                <!-- <p class="s_address">深圳市龙岗区龙岗中心城万汇大厦1608</p> -->
-                                <p class="s_address_dt">&yen;0.16</p>
-                            </div>
-                            <div class="item_icon" onclick="alertMask()"></div>
-                        </a>
-                        <a href="javascript:;" class="item">
-                            <div class="item_top">
-                                <img src="images/ceshituian.jpg">
-                            </div>
-                            <div class="item_info">
-                                <h3 class="s_name">凤聚健康管理之家</h3>
-                                <!-- <p class="s_address">深圳市龙岗区龙岗中心城万汇大厦1608</p> -->
-                                <p class="s_address_dt">&yen;0.16</p>
-                            </div>
-                            <div class="item_icon" onclick="alertMask()"></div>
-                        </a>
-                        <a href="javascript:;" class="item">
-                            <div class="item_top">
-                                <img src="images/ceshituian.jpg">
-                            </div>
-                            <div class="item_info">
-                                <h3 class="s_name">凤聚健康管理之家</h3>
-                                <!-- <p class="s_address">深圳市龙岗区龙岗中心城万汇大厦1608</p> -->
-                                <p class="s_address_dt">&yen;0.16</p>
-                            </div>
-                            <div class="item_icon" onclick="alertMask()"></div>
-                        </a>
-                        <a href="javascript:;" class="item">
-                            <div class="item_top">
-                                <img src="images/ceshituian.jpg">
-                            </div>
-                            <div class="item_info">
-                                <h3 class="s_name">凤聚健康管理之家</h3>
-                                <!-- <p class="s_address">深圳市龙岗区龙岗中心城万汇大厦1608</p> -->
-                                <p class="s_address_dt">&yen;0.16</p>
-                            </div>
-                            <div class="item_icon" onclick="alertMask()"></div>
-                        </a>
-                        <a href="javascript:;" class="item">
-                            <div class="item_top">
-                                <img src="images/ceshituian.jpg">
-                            </div>
-                            <div class="item_info">
-                                <h3 class="s_name"><span class="discount">八折</span>凤聚健康管理之家</h3>
-                                <!-- <p class="s_address">深圳市龙岗区龙岗中心城万汇大厦1608</p> -->
-                                <p class="s_address_dt">&yen;0.16</p>
-                            </div>
-                            <div class="item_icon" onclick="alertMask()"></div>
-                        </a>
-                        <a href="javascript:;" class="item">
-                            <div class="item_top">
-                                <img src="images/ceshituian.jpg">
-                            </div>
-                            <div class="item_info">
-                                <h3 class="s_name">凤聚健康管理之家</h3>
-                                <!-- <p class="s_address">深圳市龙岗区龙岗中心城万汇大厦1608</p> -->
-                                <p class="s_address_dt">&yen;0.16</p>
-                            </div>
-                            <div class="item_icon" onclick="alertMask()"></div>
-                        </a>
+ 
+<!-- 3st step -->
+<div id="sortable" class="sjs-default">
+  <!-- 2nd step -->
+  <div data-sjsel="development" class="item_img"><img src="images/ceshituian.jpg"> </div>
+  <div data-sjsel="development" class="item_img"> <img src="images/ceshituian.jpg"> </div>
+</div>  
                     </div>
 				</div>
 				<div class="daohan_box">
@@ -213,7 +138,9 @@
     </div>
     <script type='text/javascript' src='js/public/jquery-3.3.1.min.js' charset='utf-8'></script>
     <script type='text/javascript' src='js/public/light7.min.js' charset='utf-8'></script>
+    <script src="js/sortable.min.js"></script>
     <script type="text/javascript">
+    	document.querySelector('#sortable').sortablejs()
 		$(function () {
 			var ie6 = /msie 6/i.test(navigator.userAgent)
 		       , dv = $('#fixedMenu'), st;
